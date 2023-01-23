@@ -104,7 +104,7 @@ git clone https://github.com/sebalp100/SQL-Animals/
 
 ### Usage
 
-To run the project, execute the following command in your terminal or in pgAdmin:
+To run the project, execute the following command in your SQL Shell or in pgAdmin:
 
 - Use the code from scheme.sql to create a new database
 - Use the code from data.sql to insert new animal data into your table
