@@ -1,6 +1,6 @@
 SELECT * FROM animals WHERE name LIKE '%mon';
 
-SELECT name FROM animals WHERE date_of_birth BETWEEN '2016-1-1' AND '2019-1-1';
+SELECT name FROM animals WHERE date_of_birth >='2016/01/01' AND date_of_birth <='2019/12/31';
 
 SELECT name FROM animals WHERE neutered=true AND escape_attempts<3;
 
