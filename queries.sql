@@ -61,3 +61,21 @@ SET weight_kg = weight_kg * -1
 WHERE weight_kg < 0
 
 COMMIT;
+
+
+-- add AGGREGATE FUNCTIONS queries
+
+
+SELECT COUNT(*) FROM animals;
+
+SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT neutered, COUNT(escape_attempts) FROM animals GROUP BY neutered;
+
+SELECT species, MAX(weight_kg), MIN(weight_kg) FROM animals GROUP BY species;
+
+SELECT species, AVG(escape_attempts) as avg_escape_attempts FROM animals
+WHERE  date_of_birth > '1990/1/1' AND date_of_birth < '2000/12/31'
+GROUP BY species;
