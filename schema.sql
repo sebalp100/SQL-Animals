@@ -36,3 +36,30 @@ ADD COLUMN owner_id INT,
 ADD FOREIGN KEY (owner_id) REFERENCES owners(id);
 
 COMMIT;
+
+
+BEGIN;
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    age INTEGER,
+    date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+    id SERIAL PRIMARY KEY,
+    species_id INTEGER REFERENCES species(id),
+    vet_id INTEGER REFERENCES vets(id),
+    UNIQUE (species_id, vet_id)
+);
+
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    animal_id INTEGER REFERENCES animals(id),
+    vet_id INTEGER REFERENCES vets(id),
+    visit_date DATE,
+    UNIQUE (animal_id, vet_id, visit_date)
+);
+
+COMMIT;
