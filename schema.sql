@@ -63,3 +63,20 @@ CREATE TABLE visits (
 );
 
 COMMIT;
+
+
+BEGIN;
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX idx_animal_id ON visits(animal_id);
+ANALYZE;
+
+SAVEPOINT sp1;
+
+CREATE INDEX idx_vet_id ON visits (vet_id);
+ANALYZE;
+
+CREATE INDEX idx_email ON owners (email);
+
+COMMIT;
